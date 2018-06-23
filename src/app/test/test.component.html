@@ -5,9 +5,35 @@
     <label>Rows: 
       <input type="number" [(ngModel)]="grid.y" placeholder="rows">
     </label>
-    <input type="button" value="Refresh Grid" (click)="refresh($event)">
+    <input type="button" value="Refresh Grid" (click)="loadGrid($event)">
+    <input type="button" value="Start" (click)="startGame($event)">
+    <input type="button" value="Stop" (click)="stopGame($event)">
 </div>
-<h2>{{ grid.x }} X {{grid.y}} GRID</h2>
-<div><span>Coumns: </span>{{grid.x}}</div>
-<div><span>Rows: </span>{{grid.y}}</div>
-<div><span>Total Positions </span>{{grid.total_positions}}</div>
+<div>
+    <table>
+        <tr *ngFor="let gr of grid.grid; let j = index">
+            <td *ngFor="let g of gr; let i = index">
+                <div class="bg-red" *ngIf="g*1 > 0 && !game[(g*1)].status">
+                    :(
+                </div>
+                <div class="bg-green" *ngIf="g*1 > 0 && game[(g*1)].status">
+                    :)
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<style>
+    .bg-red{
+        background: #FF0000;
+        width: 20px;
+        text-align: center;
+    }
+    .bg-green{
+        background: #00ff00;
+        width: 20px;
+        text-align: center;
+    }
+    
+</style>

@@ -1,5 +1,4 @@
 
-
 export class Grid {
     
   x: number;
@@ -28,7 +27,7 @@ export class Grid {
             description: 'bottom-right'
         },
   };
-  
+  grid = Array();  
   
   
   constructor() { 
@@ -49,7 +48,18 @@ export class Grid {
     this.setCorners();
     this.setLocations();
     this.setNeighbours();
-    console.log(this.positions);
+    this.setGrid();
+  }
+  
+  setGrid() {
+      var p = 1;
+      for ( var j = 0; j < this.y; j++ ) {
+          this.grid[j] = Array();
+        for ( var i = 1; i <= this.x; i++ ) {
+            this.grid[j][i] = p;
+            p++;
+        }
+      }
   }
   
   
