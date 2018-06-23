@@ -1,0 +1,9 @@
+{
+    "elements": {
+        "app-messages": {},
+        "router-outlet": {}
+    },
+    "attributes": {
+        "[(ngmodel)]": {}
+    }
+}

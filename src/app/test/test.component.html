@@ -1,0 +1,13 @@
+<div>
+    <label>Columns:
+      <input type="number" [(ngModel)]="grid.x" placeholder="columns">
+    </label>    
+    <label>Rows: 
+      <input type="number" [(ngModel)]="grid.y" placeholder="rows">
+    </label>
+    <input type="button" value="Refresh Grid" (click)="refresh($event)">
+</div>
+<h2>{{ grid.x }} X {{grid.y}} GRID</h2>
+<div><span>Coumns: </span>{{grid.x}}</div>
+<div><span>Rows: </span>{{grid.y}}</div>
+<div><span>Total Positions </span>{{grid.total_positions}}</div>
