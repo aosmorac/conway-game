@@ -6,7 +6,7 @@ export class Cell {
     position = 0;
     neighbours: Array<any>;
     running = false;
-    time = 1000;
+    time = 500;
     
     
     constructor(position:number, neighbours: Array<any>) { 
