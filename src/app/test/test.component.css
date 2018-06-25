@@ -1,0 +1,92 @@
+    .bg-red{
+        background: #FF0000;
+        width: 20px;
+        text-align: center;
+    }
+    .bg-green{
+        background: #00ff00;
+        width: 20px;
+        text-align: center;
+    }
+    
+    
+    .control-form{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        text-align: center;
+        font-family: 'Roboto';
+        padding: 20px;
+    }
+    .control-form span {
+        margin: 0 20px;
+        color: #888888;
+        font-size: 30px;
+    }
+    .control-form span input[type="number"]{
+        border: solid 1px #cccccc;
+        padding: 5px;
+        font-size: 18px;
+        color: #888888;
+        width: 50px;
+    }
+    .control-form span input[type="button"]{
+        border: solid 1px #cccccc;
+        background: #888888;
+        padding: 5px;
+        font-size: 18px;
+        color: #ffffff;
+        cursor: pointer;
+    }
+    .control-form span input[type="button"]:hover{
+        background: #0d2636;
+    }
+    
+    .grid-game {
+        margin: 100px 0;
+        text-align: center;
+    }
+    .grid-game table {
+        margin: 0 auto;
+    }
+    
+    .foot-test {
+        background: #0d2636;
+        color: #ffffff;
+        text-align: center;
+        padding: 5px;
+        font-size: 18px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        font-family: 'Roboto'
+    }
+    .foot-test a {
+        color: #ffffff;
+        margin: 0 20px;
+    }
+    .foot-test a:hover, .foot-test a:active, .foot-test:visited {
+        color: #ccffff;
+    }
+    
+    .first-screen{
+        position: fixed;
+        top: 0; bottom: 0; right: 0; left: 0;
+        text-align: center;
+        background: #ffffff
+    }
+    .first-screen input[type="button"]{
+        border: solid 5px #cccccc;
+        background: #888888;
+        padding: 10px;
+        font-size: 70px;
+        color: #ffffff;
+        cursor: pointer;
+        margin: 30px auto;
+    }
+    .first-screen input[type="button"]:hover{
+        background: #0d2636;
+    }

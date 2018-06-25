@@ -1,14 +1,35 @@
 import {Game} from '../model/game';
 
+/**
+ * Cell Class
+ * 
+ * It is the class where is the behavior of a cell in Conway's Game of Life
+ * 
+ * The methods are:
+ * 
+ * constructor();
+ * isAlive();
+ * kill();
+ * revive();
+ * changeStatus();
+ * run();
+ * start();
+ * stop();
+ */
+
 export class Cell {
     
-    status: boolean;
-    position = 0;
-    neighbours: Array<any>;
-    running = false;
-    time = 500;
+    status: boolean;    // status of the cell (alive or dead)
+    position = 0;   // position of the cell in a grid
+    neighbours: Array<any>; // Array with the neighbours positions
+    running = false;    // Status to know if its running in the game
+    time = 500;     // Default time for run status update
     
     
+    /**
+     * Initioalize position, neighbours and status
+     * In this case the status (aliver or dead), is random
+     */
     constructor(position:number, neighbours: Array<any>) { 
         this.position = position;
         this.neighbours = neighbours;
@@ -20,18 +41,38 @@ export class Cell {
         }
     }
     
+    /**
+     * Return the status value
+     */
     isAlive() {
         return this.status;
     }
     
+    /**
+     * Set false the status value (set dead)
+     */
     kill() {
         this.status = false;
     }
     
+    /**
+     * Set true the status value (set alive)
+     */
     revive(){
          this.status = true;
     }
     
+    /**
+     * Count how many alive neighbours are and how many dead are
+     * Then according to the games rules set status alive or dead
+     * 
+     * Rules
+     * 1. Any live cell with fewer than two live neighbours dies, as if caused by underpopulation.
+     * 2. Any live cell with two or three live neighbours lives on to the next generation.
+     * 3. Any live cell with more than three live neighbours dies, as if by overpopulation.
+     * 4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+     * 
+     */
     changeStatus(){
         var alive = 0;
         var dead = 0;
@@ -57,6 +98,9 @@ export class Cell {
         }
     }
     
+    /**
+     * Check and change its status
+     */
     run() {
         if ( this.running ){
             this.changeStatus();

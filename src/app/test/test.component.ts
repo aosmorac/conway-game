@@ -9,28 +9,49 @@ import {Game} from '../../model/game';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
-  title = 'test';
     
   grid = new Grid();
   game = Game.cells;
-
-
-  constructor() { }
   
-  loadGrid(event){
+  refreshed = false;
+  running = false;
+  first = true;
+
+
+  constructor() {
+      this.loadGrid();
+  }
+  
+  loadGrid(){
       this.grid.calcPositions();
       for (const key in this.grid.positions) {
           Game.setNewCell(this.grid.positions[key].position, this.grid.positions[key].neighbours);
       }
-      console.log(this.game[1]);
+      this.refreshed = true;
+      this.running = false;
   }
   
-  startGame(event) {
+  startGame() {
+      this.first = false;
+      this.running = true;
       Game.start();
   }
   
-  stopGame(event) {
+  stopGame() {
+      this.running = false;
       Game.stop();
+  }
+  
+  loadGridBtn(event){
+      this.loadGrid();
+  }
+  
+  startGameBtn(event) {
+      this.startGame();
+  }
+  
+  stopGameBtn(event) {
+      this.stopGame();
   }
   
 

@@ -1,15 +1,25 @@
-<div>
+<div class="control-form">
+    <span>
     <label>Columns:
-      <input type="number" [(ngModel)]="grid.x" placeholder="columns">
+      <input type="number" min="5" max="50" [(ngModel)]="grid.x" placeholder="columns">
     </label>    
+    </span>
+    <span>
     <label>Rows: 
-      <input type="number" [(ngModel)]="grid.y" placeholder="rows">
+      <input type="number" min="5" max="25" [(ngModel)]="grid.y" placeholder="rows">
     </label>
-    <input type="button" value="Refresh Grid" (click)="loadGrid($event)">
-    <input type="button" value="Start" (click)="startGame($event)">
-    <input type="button" value="Stop" (click)="stopGame($event)">
+    </span>
+    <span>
+    <input type="button" value="Refresh Grid" (click)="loadGridBtn($event)">
+    </span>
+    <span>
+    <input type="button" value="Start" (click)="startGameBtn($event)" *ngIf="refreshed && !running">
+    </span>
+    <span>
+    <input type="button" value="Stop" (click)="stopGameBtn($event)" *ngIf="running">
+    </span>
 </div>
-<div>
+<div class="grid-game">
     <table>
         <tr *ngFor="let gr of grid.grid; let j = index">
             <td *ngFor="let g of gr; let i = index">
@@ -23,17 +33,10 @@
         </tr>
     </table>
 </div>
-
-<style>
-    .bg-red{
-        background: #FF0000;
-        width: 20px;
-        text-align: center;
-    }
-    .bg-green{
-        background: #00ff00;
-        width: 20px;
-        text-align: center;
-    }
-    
-</style>
+<div class="foot-test">
+    <a href="https://s3.amazonaws.com/abelmoreno/downloads/cronway-game.pdf" target="_blank">Conway's Game Analysis</a>
+    <a href="https://github.com/aosmorac/conway-game" target="_blank">GitHub Repo</a>
+</div>
+<div class="first-screen" *ngIf="first">
+    <input type="button" value="Start" (click)="startGameBtn($event)" >
+</div>
