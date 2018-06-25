@@ -1,5 +1,7 @@
 # ConwayGame
 
+Check it running on http://34.229.128.17:8084/test
+
 Run ON Linux (Ubuntu)
 
 $ sudo apt-get update <br>
